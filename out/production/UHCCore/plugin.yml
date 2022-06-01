@@ -1,0 +1,8 @@
+name: UHCCore
+main: fr.azrotho.uhccore.Main
+version: 1.0
+api-version: 1.13
+commands:
+  host:
+    description: Gestion/Configuration de la partie
+    usage: ~~Je suis un Message Inutile, si j'aparais c'est que le dev est mauvais~~
