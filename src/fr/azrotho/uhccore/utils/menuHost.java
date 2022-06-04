@@ -77,7 +77,27 @@ public class menuHost {
 
         ItemStack AddPvP = new ItemStack(Material.STAINED_GLASS, 1, DyeColor.LIME.getData());
         ItemMeta AddPvPMeta = AddPvP.getItemMeta();
-        // BRRRRR go sleep.
+        AddPvPMeta.setDisplayName("§aAjouter +1 Min PvP");
+        AddPvP.setItemMeta(AddPvPMeta);
+        inv.setItem(11, AddPvP);
+
+        ItemStack RemovePvP = new ItemStack(Material.STAINED_GLASS, 1, DyeColor.RED.getData());
+        ItemMeta RemovePvPMeta = RemovePvP.getItemMeta();
+        AddPvPMeta.setDisplayName("§cRetirer -1 Min PvP");
+        RemovePvP.setItemMeta(RemovePvPMeta);
+        inv.setItem(29, RemovePvP);
+
+        ItemStack AddBordure = new ItemStack(Material.STAINED_GLASS, 1, DyeColor.LIME.getData());
+        ItemMeta AddBordureMeta = AddBordure.getItemMeta();
+        AddBordureMeta.setDisplayName("§aAjouter +1 Min Bordure");
+        AddBordure.setItemMeta(AddBordureMeta);
+        inv.setItem(15, AddBordure);
+
+        ItemStack RemoveBordure = new ItemStack(Material.STAINED_GLASS, 1, DyeColor.RED.getData());
+        ItemMeta RemoveBordureMeta = RemoveBordure.getItemMeta();
+        RemoveBordureMeta.setDisplayName("§cRetirer -1 Min Bordure");
+        RemoveBordure.setItemMeta(RemoveBordureMeta);
+        inv.setItem(33, RemoveBordure);
 
     }
 

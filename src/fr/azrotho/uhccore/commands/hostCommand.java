@@ -26,7 +26,9 @@ public class hostCommand implements CommandExecutor {
                     case "broadcast":
                         StringBuilder bc = new StringBuilder();
                         for (String part : strings) {
-                            bc.append(part + " ");
+                            if(!strings[0].equals(part)) {
+                                bc.append(part + " ");
+                            }
                         }
                        Bukkit.broadcastMessage("§6§l[" + player.getName() + "] " + bc);
                         break;
