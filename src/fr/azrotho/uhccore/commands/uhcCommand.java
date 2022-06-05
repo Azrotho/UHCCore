@@ -20,10 +20,20 @@ public class uhcCommand implements CommandExecutor {
                 commandSender.sendMessage("§e§lActivation du PvP: §c" + Main.getTimerPvP() + " min");
                 commandSender.sendMessage("§e§lActivation de la Bordure: §c" + Main.getTimerBorder() + " min");
                 commandSender.sendMessage("§e§lInventaire choisit: " + Main.Inventory);
+                break;
             case "scenarios":
-                for (String scenario : Scenarios){
+                if(!Main.getScenarios().get("MysteryScenarios")) {
+                    commandSender.sendMessage("§6§lLa liste des scénarios est:");
+                    for (String scenario : Scenarios) {
+                        if (Main.getScenarios().get(scenario)) {
+                            commandSender.sendMessage("§e- §6" + scenario);
+                        }
+                    }
+                }else{
+                    commandSender.sendMessage("§c§lMysteryScenarios, est actif, vous ne pouvez pas avoir accès à la liste des scénarios...");
 
                 }
+                break;
         }
         return true;
     }

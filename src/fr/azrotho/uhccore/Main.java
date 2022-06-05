@@ -2,6 +2,7 @@ package fr.azrotho.uhccore;
 
 import fr.azrotho.uhccore.commands.consoleCommand;
 import fr.azrotho.uhccore.commands.hostCommand;
+import fr.azrotho.uhccore.commands.uhcCommand;
 import fr.azrotho.uhccore.listeners.inventoryClick;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -14,8 +15,7 @@ public class Main extends JavaPlugin {
 
     private static HashMap<UUID, Boolean> hosts;
 
-
-    private static final List<String> Scenarios = Arrays.asList("TwitchControl [X]", "HasteyBoy [X]", "FastSmelting [X]", "SuperHeroes [X]", "MysteryScenarios [X]", "HideSuccess [X]", "HideKills [X]");
+    private static final List<String> Scenarios = Arrays.asList("TwitchControl [X]", "HasteyBoy [X]", "FastSmelting [X]", "SuperHeroes [X]", "MysteryScenarios", "HideSuccess [X]", "HideKills [X]");
 
     private static String MDJ;
 
@@ -30,6 +30,7 @@ public class Main extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new inventoryClick(), this);
         scenarios = new HashMap<>();
         hosts = new HashMap<>();
+        Objects.requireNonNull(this.getCommand("uhc")).setExecutor(new uhcCommand());
         Objects.requireNonNull(this.getCommand("host")).setExecutor(new hostCommand());
         Objects.requireNonNull(this.getCommand("console")).setExecutor(new consoleCommand());
         for(String Scenario : Scenarios){
@@ -46,7 +47,6 @@ public class Main extends JavaPlugin {
     public static HashMap<UUID, Boolean> getHosts() { return hosts; }
 
     public static List<String> getScenariosList() { return Scenarios; }
-
 
     public static String getMDJ() {
         return MDJ;

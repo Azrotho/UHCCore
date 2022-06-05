@@ -8,3 +8,6 @@ commands:
   console:
     description: Gestion des hosts, par la console
     usage: ~~Je suis un Message Inutile, si j'aparais c'est que le dev est mauvais~~
+  uhc:
+    description: Savoir tous les informations de la partie
+    usage: ~~Je suis un Message Inutile, si j'aparais c'est que le dev est mauvais~~
