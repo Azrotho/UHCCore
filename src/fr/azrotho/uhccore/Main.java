@@ -2,6 +2,8 @@ package fr.azrotho.uhccore;
 
 import fr.azrotho.uhccore.commands.consoleCommand;
 import fr.azrotho.uhccore.commands.hostCommand;
+import fr.azrotho.uhccore.listeners.inventoryClick;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.*;
@@ -25,6 +27,7 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        Bukkit.getServer().getPluginManager().registerEvents(new inventoryClick(), this);
         scenarios = new HashMap<>();
         hosts = new HashMap<>();
         Objects.requireNonNull(this.getCommand("host")).setExecutor(new hostCommand());

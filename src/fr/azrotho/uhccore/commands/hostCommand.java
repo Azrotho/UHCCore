@@ -32,18 +32,11 @@ public class hostCommand implements CommandExecutor {
                         }
                        Bukkit.broadcastMessage("§6§l[" + player.getName() + "] " + bc);
                         break;
-                    case "menu1":
+                    case "menu":
                         menuHost.openMenuHost(player);
                         break;
-                    case "menu2":
-                        menuHost.openMenuInv(player);
-                        break;
-                    case "menu3":
-                        menuHost.openMenuTimer(player);
-                        break;
-                    case "menu4":
-                        menuHost.openMenuScenarios(player);
-                        break;
+                    default:
+                        player.sendMessage("§c§lCommande inconnue, faites /host help");
                 }
             }else{
                 player.sendMessage("§c§lVous devez être l'Host de la partie pour exécuter cette commande.");

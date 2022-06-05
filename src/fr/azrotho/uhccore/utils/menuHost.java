@@ -29,7 +29,7 @@ public class menuHost {
 
     }
     public static void openMenuScenarios(Player p){
-        Inventory inv = Bukkit.createInventory(null, 54, "§c§lGestion des Scnarios");
+        Inventory inv = Bukkit.createInventory(null, 54, "§c§lGestion des Scénarios");
         p.openInventory(inv);
         ItemStack wool;
         for(String Scenario : Scenarios){
@@ -102,12 +102,14 @@ public class menuHost {
 
     }
 
-    public void openGamemodeMenu(Player p){
+    public static void openMenuGamemode(Player p){
         Inventory inv = Bukkit.createInventory(null, 45, "§c§lGestion des Modes de Jeu");
         p.openInventory(inv);
 
         inv.setItem(10, itemConstructor.getItem(Material.GRASS, "§c§lUHC Classique", false, 1));
         inv.setItem(12, itemConstructor.getItem(Material.RABBIT_FOOT, "§c§lDanganronpa UHC", false, 1));
+        inv.setItem(14, itemConstructor.getItem(Material.DRAGON_EGG, "§c§lSpeedrun", false, 1));
+
     }
 
 }

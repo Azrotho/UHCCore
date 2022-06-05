@@ -28,7 +28,7 @@ public class consoleCommand implements CommandExecutor {
                 case "help":
                     commandSender.sendMessage("§c§lhost sethost <Pseudo>: Mettre un joueur avec les permissions d'Host.");
                 default:
-                    commandSender.sendMessage("§c§lFaites 'host help' pour de l'aide");
+                    commandSender.sendMessage("§c§lFaites 'console help' pour de l'aide");
             }
             return true;
         }else{
