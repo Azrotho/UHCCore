@@ -23,7 +23,8 @@ public class menuHost {
         p.openInventory(inv);
 
         inv.setItem(19, itemConstructor.getItem(Material.REDSTONE, "§c§lGestion des Scénarios", false, 1));
-        inv.setItem(22, itemConstructor.getItem(Material.LEATHER_CHESTPLATE, "§c§lGestion des Inventaires", false, 1));
+        inv.setItem(21, itemConstructor.getItem(Material.LEATHER_CHESTPLATE, "§c§lGestion des Inventaires", false, 1));
+        inv.setItem(23, itemConstructor.getItem(Material.PAPER, "§c§lMode de Jeu", false, 1));
         inv.setItem(25, itemConstructor.getItem(Material.BEACON, "§c§lGestion des Timers", false, 1));
 
     }
@@ -99,6 +100,14 @@ public class menuHost {
         RemoveBordure.setItemMeta(RemoveBordureMeta);
         inv.setItem(33, RemoveBordure);
 
+    }
+
+    public void openGamemodeMenu(Player p){
+        Inventory inv = Bukkit.createInventory(null, 45, "§c§lGestion des Modes de Jeu");
+        p.openInventory(inv);
+
+        inv.setItem(10, itemConstructor.getItem(Material.GRASS, "§c§lUHC Classique", false, 1));
+        inv.setItem(12, itemConstructor.getItem(Material.RABBIT_FOOT, "§c§lDanganronpa UHC", false, 1));
     }
 
 }
