@@ -62,7 +62,7 @@ public class menuHost {
 
        p.openInventory(inv);
 
-       ItemStack pvp = new ItemStack(Material.DIAMOND_SPADE);
+       ItemStack pvp = new ItemStack(Material.DIAMOND_SWORD);
        ItemMeta pvpMeta = pvp.getItemMeta();
        pvpMeta.setDisplayName("§c§lTimer du PvP");
        pvpMeta.setLore(Arrays.asList(" ", "§cActivation du PvP: §e" + Main.getTimerPvP() + "§cmin"));
@@ -84,7 +84,7 @@ public class menuHost {
 
         ItemStack RemovePvP = new ItemStack(Material.STAINED_GLASS, 1, DyeColor.RED.getData());
         ItemMeta RemovePvPMeta = RemovePvP.getItemMeta();
-        AddPvPMeta.setDisplayName("§cRetirer -1 Min PvP");
+        RemovePvPMeta.setDisplayName("§cRetirer -1 Min PvP");
         RemovePvP.setItemMeta(RemovePvPMeta);
         inv.setItem(29, RemovePvP);
 

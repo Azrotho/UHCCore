@@ -57,5 +57,58 @@ public class inventoryClick implements Listener {
             p.closeInventory();
             menuHost.openMenuScenarios(p);
         }
+        if(invview.getTitle().equalsIgnoreCase("§c§lGestion des Inventaires")){
+
+
+            if(current.getItemMeta().getDisplayName().equalsIgnoreCase("§c§lClassico")){
+                Main.Inventory = "Classic";
+            }
+            if(current.getItemMeta().getDisplayName().equalsIgnoreCase("§c§lBorderline")){
+                Main.Inventory = "Borderline";
+            }
+            if(current.getItemMeta().getDisplayName().equalsIgnoreCase("§c§lUHC Run")){
+                Main.Inventory = "UHC Run";
+            }
+            if(current.getItemMeta().getDisplayName().equalsIgnoreCase("§c§lMeetup")){
+                Main.Inventory = "Meetup";
+            }
+
+            event.setCancelled(true);
+
+        }
+
+        if(invview.getTitle().equalsIgnoreCase("§c§lGestion des Timers")){
+
+            event.setCancelled(true);
+
+
+            // PvP
+            if(current.getItemMeta().getDisplayName().equalsIgnoreCase("§aAjouter +1 Min PvP")){
+                Main.TimerPvP = Main.TimerPvP + 1;
+            }
+            if(current.getItemMeta().getDisplayName().equalsIgnoreCase("§cRetirer -1 Min PvP")){
+                if(Main.TimerPvP != 1) {
+                    Main.TimerPvP = Main.TimerPvP - 1;
+                }else{
+                    p.sendMessage("§c§lVous pouvez pas mettre le Timer à 0.");
+                }
+            }
+
+            // Bordure
+            if(current.getItemMeta().getDisplayName().equalsIgnoreCase("§aAjouter +1 Min Bordure")){
+                Main.TimerBorder = Main.TimerBorder + 1;
+            }
+            if(current.getItemMeta().getDisplayName().equalsIgnoreCase("§cRetirer -1 Min Bordure")){
+                if(Main.TimerBorder != 1) {
+                    Main.TimerBorder = Main.TimerBorder - 1;
+                }else{
+                    p.sendMessage("§c§lVous pouvez pas mettre le Timer à 0.");
+                }
+            }
+
+            p.closeInventory();
+            menuHost.openMenuTimer(p);
+
+        }
     }
 }

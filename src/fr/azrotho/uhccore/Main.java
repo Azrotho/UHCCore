@@ -15,15 +15,15 @@ public class Main extends JavaPlugin {
     private static HashMap<UUID, Boolean> hosts;
 
 
-    private static final List<String> Scenarios = Arrays.asList("TwitchControl [X]", "HasteyBoy [X]", "FastSmelting [X]", "SuperHeroes [X]");
+    private static final List<String> Scenarios = Arrays.asList("TwitchControl [X]", "HasteyBoy [X]", "FastSmelting [X]", "SuperHeroes [X]", "MysteryScenarios [X]", "HideSuccess [X]", "HideKills [X]");
 
     private static String MDJ;
 
-    private static String Inventory;
+    public static String Inventory;
 
-    private static Integer TimerPvP;
+    public static Integer TimerPvP;
 
-    private static Integer TimerBorder;
+    public static Integer TimerBorder;
 
     @Override
     public void onEnable() {
@@ -47,9 +47,6 @@ public class Main extends JavaPlugin {
 
     public static List<String> getScenariosList() { return Scenarios; }
 
-    public static String getInventory() {
-        return Inventory;
-    }
 
     public static String getMDJ() {
         return MDJ;
