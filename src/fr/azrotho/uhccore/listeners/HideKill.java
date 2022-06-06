@@ -2,6 +2,7 @@ package fr.azrotho.uhccore.listeners;
 
 import fr.azrotho.uhccore.Main;
 import fr.azrotho.uhccore.utils.checkAlive;
+import org.bukkit.GameMode;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -27,6 +28,11 @@ public class HideKill implements Listener {
             }else{
                 event.setDeathMessage("§c§l" + event.getEntity().getDisplayName() + " §f§lest mort naturellement (PvE)");
             }
+        }
+        if(Main.getScenarios().get("KickAtDeath")){
+            event.getEntity().getPlayer().kickPlayer("§c§lVous êtes Mort.");
+        }else{
+            event.getEntity().getPlayer().setGameMode(GameMode.SPECTATOR);
         }
     }
 }

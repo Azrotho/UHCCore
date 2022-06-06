@@ -67,7 +67,6 @@ public class hostCommand implements CommandExecutor {
 
                         for(Player p : Bukkit.getOnlinePlayers()) {
                             p.setHealth(20);
-                            p.setMaxHealth(20);
                             p.getInventory().clear();
                             p.setFoodLevel(20);
                             p.setSaturation(20);

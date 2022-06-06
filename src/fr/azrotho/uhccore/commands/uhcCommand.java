@@ -20,7 +20,10 @@ public class uhcCommand implements CommandExecutor {
                 commandSender.sendMessage("§e§lMode de Jeu: " + Main.getMDJ());
                 commandSender.sendMessage("§e§lActivation du PvP: §c" + Main.getTimerPvP() + " min");
                 commandSender.sendMessage("§e§lActivation de la Bordure: §c" + Main.getTimerBorder() + " min");
-                commandSender.sendMessage("§e§lInventaire choisit: " + Main.Inventory);
+                commandSender.sendMessage("§e§lInventaire choisit: §c" + Main.Inventory);
+                commandSender.sendMessage("§e§lBordure Initale: §c" + Main.BordureAvant + " blocs");
+                commandSender.sendMessage("§e§lVitesse de la Bordure: §c" + (float) (Main.BordureAvant - Main.BordureApres) / ( Main.TempsBordure * 60) + " m/s");
+                commandSender.sendMessage("§e§lBordure Finale: §c" + Main.BordureApres + " blocs");
                 break;
             case "scenarios":
                 if(!Main.getScenarios().get("MysteryScenarios")) {

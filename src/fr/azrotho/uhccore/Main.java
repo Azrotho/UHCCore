@@ -15,7 +15,7 @@ public class Main extends JavaPlugin {
 
     private static HashMap<String, Boolean> scenarios;
     private static HashMap<UUID, Boolean> hosts;
-    private static final List<String> Scenarios = Arrays.asList("TwitchControl [WIP]", "HasteyBoy", "FastSmelting", "SuperHeroes", "MysteryScenarios", "HideSuccess", "HideKills", "Pride Month!", "Random [WIP]", "DoubleJump [WIP]");
+    private static final List<String> Scenarios = Arrays.asList("TwitchControl [WIP]", "HasteyBoy", "FastSmelting", "SuperHeroes", "MysteryScenarios", "HideSuccess", "HideKills", "Pride Month!", "Random [WIP]", "DoubleJump [WIP]", "KickAtDeath");
     private static String MDJ;
     public static String Inventory;
     public static Integer TimerPvP;
@@ -27,6 +27,7 @@ public class Main extends JavaPlugin {
     private static HashMap<UUID, String> Status;
     public static Integer BordureAvant;
     public static Integer BordureApres;
+
     public static Integer TempsBordure;
 
     @Override
@@ -56,6 +57,9 @@ public class Main extends JavaPlugin {
         TimerBorder = 60;
         Title = "§4P§cr§6i§ed§ae §2M§1o§bn§dt§5h";
         Timer = 0;
+        BordureAvant = 1250;
+        BordureApres = 100;
+        TempsBordure = 5;
     }
 
     public static HashMap<String, Boolean> getScenarios() { return  scenarios; }

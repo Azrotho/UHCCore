@@ -26,7 +26,7 @@ public class menuHost {
         inv.setItem(21, itemConstructor.getItem(Material.LEATHER_CHESTPLATE, "§c§lGestion des Inventaires", false, 1));
         inv.setItem(23, itemConstructor.getItem(Material.PAPER, "§c§lMode de Jeu", false, 1));
         inv.setItem(25, itemConstructor.getItem(Material.BEACON, "§c§lGestion des Timers", false, 1));
-        inv.setItem(29, itemConstructor.getItem(Material.DIAMOND_BLOCK, "Gestion de la Bordure", false, 1));
+        inv.setItem(29, itemConstructor.getItem(Material.DIAMOND_BLOCK, "§c§lGestion de la Bordure", false, 1));
 
     }
     public static void openMenuScenarios(Player p){
@@ -131,6 +131,13 @@ public class menuHost {
         Border.setItemMeta(BorderMeta);
         inv.setItem(24, Border);
 
+        ItemStack Time = new ItemStack(Material.SUGAR);
+        ItemMeta TimeMeta = Time.getItemMeta();
+        TimeMeta.setDisplayName("§c§lTemps de réduction de la Bordure");
+        TimeMeta.setLore(Arrays.asList(" ", "§c§lTemps de rédudcton de la Bordure: §e" + Main.TempsBordure + " min", "§c§lCe qui correspond à une vitesse de: §e" + (float) (Main.BordureAvant - Main.BordureApres) / ( Main.TempsBordure * 60) + " m/s"));
+        Time.setItemMeta(TimeMeta);
+        inv.setItem(22, Time);
+
         ItemStack AddPvP = new ItemStack(Material.STAINED_GLASS, 1, DyeColor.LIME.getData());
         ItemMeta AddPvPMeta = AddPvP.getItemMeta();
         AddPvPMeta.setDisplayName("§aAjouter +50 Bloc Avant");
@@ -151,9 +158,23 @@ public class menuHost {
 
         ItemStack RemoveBordure = new ItemStack(Material.STAINED_GLASS, 1, DyeColor.RED.getData());
         ItemMeta RemoveBordureMeta = RemoveBordure.getItemMeta();
-        RemoveBordureMeta.setDisplayName("§cRetirer -50 Bloc Après");
+        RemoveBordureMeta.setDisplayName("e");
         RemoveBordure.setItemMeta(RemoveBordureMeta);
         inv.setItem(33, RemoveBordure);
+
+        ItemStack AddTime = new ItemStack(Material.STAINED_GLASS, 1, DyeColor.LIME.getData());
+        ItemMeta AddTimeMeta = AddTime.getItemMeta();
+        AddTimeMeta.setDisplayName("§aAjouter +1 Min");
+        AddTime.setItemMeta(AddTimeMeta);
+        inv.setItem(13, AddTime);
+
+        ItemStack RemoveTime = new ItemStack(Material.STAINED_GLASS, 1, DyeColor.RED.getData());
+        ItemMeta RemoveTimeMeta = RemoveTime.getItemMeta();
+        RemoveTimeMeta.setDisplayName("§cRetirer -1 Min");
+        RemoveTime.setItemMeta(RemoveTimeMeta);
+        inv.setItem(31, RemoveTime);
+
+
 
     }
 

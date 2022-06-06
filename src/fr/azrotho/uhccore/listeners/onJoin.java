@@ -22,5 +22,10 @@ public class onJoin implements Listener {
 
         Main.getNoFall().put(event.getPlayer().getUniqueId(), false);
         Main.getStatus().put(event.getPlayer().getUniqueId(), "Wait");
+
+
+        if(Main.Timer != 0){
+            event.getPlayer().kickPlayer("§c§lLa partie est déjà en cours...");
+        }
     }
 }
