@@ -19,5 +19,7 @@ public class onJoin implements Listener {
         objective.setDisplayName("En Attente de Partie...");
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
         event.getPlayer().setScoreboard(scoreboard);
+
+        Main.getNoFall().put(event.getPlayer().getUniqueId(), false);
     }
 }

@@ -1,5 +1,6 @@
 package fr.azrotho.uhccore.utils;
 
+import fr.azrotho.uhccore.Main;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -19,6 +20,7 @@ public class superHeroes {
             case 2:
                 p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 10000 * 20, 4, true));
                 p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 10000 * 20, 0, true));
+                Main.getNoFall().put(p.getUniqueId(), true);
                 break;
             case 3:
                 p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 10000 * 20, 1, true));

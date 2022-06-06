@@ -60,11 +60,16 @@ public class hostCommand implements CommandExecutor {
                         Timer task = new Timer();
                         task.runTaskTimer(main, 0, 20);
                         for(Player p : Bukkit.getOnlinePlayers()) {
+                            p.setHealth(20);
+                            p.getInventory().clear();
+                            p.setFoodLevel(20);
+                            p.setSaturation(20);
                             TPRandom(p);
                             if(Main.getScenarios().get("SuperHeroes")){
                                 superHeroes.SuperHeroes(p);
                             }
                         }
+
                         break;
                     default:
                         player.sendMessage("§c§lCommande inconnue, faites /host help");
@@ -84,7 +89,7 @@ public class hostCommand implements CommandExecutor {
 
         location.setX(Math.random() * 1000 * 2 - 1000);
         location.setZ(Math.random() * 1000 * 2 - 1000);
-        location.setY(p.getWorld().getHighestBlockAt(location.getBlockX(), location.getBlockZ()).getY());
+        location.setY(p.getWorld().getHighestBlockAt(location.getBlockX(), location.getBlockZ()).getY() + 1);
 
         p.teleport(location);
     }

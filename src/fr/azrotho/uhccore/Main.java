@@ -15,7 +15,7 @@ public class Main extends JavaPlugin {
 
     private static HashMap<UUID, Boolean> hosts;
 
-    private static final List<String> Scenarios = Arrays.asList("TwitchControl [X]", "HasteyBoy", "FastSmelting", "SuperHeroes", "MysteryScenarios", "HideSuccess", "HideKills", "Pride Month!");
+    private static final List<String> Scenarios = Arrays.asList("TwitchControl [WIP]", "HasteyBoy", "FastSmelting", "SuperHeroes", "MysteryScenarios", "HideSuccess", "HideKills", "Pride Month!", "Random [WIP]", "DoubleJump [WIP]");
 
     private static String MDJ;
 
@@ -30,10 +30,12 @@ public class Main extends JavaPlugin {
     public static Integer Timer;
 
     public static Main INSTANCE;
+    private static HashMap<UUID, Boolean> NoFall;
 
     @Override
     public void onEnable() {
         INSTANCE = this;
+        Bukkit.getServer().getPluginManager().registerEvents(new gestionDamage(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new inventoryClick(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new HideKill(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new prideMonth(), this);
@@ -43,6 +45,7 @@ public class Main extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new fastSmelting(), this);
         scenarios = new HashMap<>();
         hosts = new HashMap<>();
+        NoFall = new HashMap<>();
         Objects.requireNonNull(this.getCommand("uhc")).setExecutor(new uhcCommand());
         Objects.requireNonNull(this.getCommand("host")).setExecutor(new hostCommand(this));
         Objects.requireNonNull(this.getCommand("console")).setExecutor(new consoleCommand());
@@ -53,7 +56,7 @@ public class Main extends JavaPlugin {
         Inventory = "Classic";
         TimerPvP = 20;
         TimerBorder = 60;
-        Title = "§c§lUHC BY AZROTHO";
+        Title = "§4P§cr§6i§ed§ae §2M§1o§bn§dt§5h";
         Timer = 0;
     }
 
@@ -77,6 +80,8 @@ public class Main extends JavaPlugin {
     public static Main getInstance() {
         return INSTANCE;
     }
+
+    public static HashMap<UUID, Boolean> getNoFall() { return NoFall; }
 
 
 
