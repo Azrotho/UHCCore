@@ -1,0 +1,32 @@
+package fr.azrotho.uhccore.utils;
+
+import fr.azrotho.uhccore.Main;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scoreboard.*;
+
+public class Timer extends BukkitRunnable {
+    @Override
+    public void run() {
+        for(Player p : Bukkit.getOnlinePlayers()) {
+            Main.Timer = Main.Timer + 1;
+            final ScoreboardManager scoreboardManager = Bukkit.getScoreboardManager();
+            final Scoreboard scoreboard = scoreboardManager.getNewScoreboard();
+            final Objective objective = scoreboard.registerNewObjective("general", "dummy");
+            objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+            objective.setDisplayName(Main.Title);
+            final Score Episode = objective.getScore("§c§lÉpisode: §f" + (int) (Main.Timer / 1200));
+            final Score Timer = objective.getScore("§f" + ((Main.Timer - (1200 * (Main.Timer / 1200))) / 60 + " §c§lmin§f " + Main.Timer % 60));
+            final Score Air = objective.getScore("");
+            final Score Role = objective.getScore("§c§lPvP: §f" + Main.getTimerPvP() + " min");
+            final Score Border = objective.getScore("§c§lBorder: §f" + Main.getTimerBorder() + " min");
+            Episode.setScore(8);
+            Timer.setScore(7);
+            Air.setScore(6);
+            Role.setScore(5);
+            Border.setScore(4);
+            p.setScoreboard(scoreboard);
+        }
+    }
+}

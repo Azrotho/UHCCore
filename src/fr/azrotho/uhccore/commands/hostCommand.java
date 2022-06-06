@@ -1,14 +1,21 @@
 package fr.azrotho.uhccore.commands;
 
 import fr.azrotho.uhccore.Main;
+import fr.azrotho.uhccore.utils.Timer;
 import fr.azrotho.uhccore.utils.menuHost;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class hostCommand implements CommandExecutor {
+
+    private Main main;
+
+    public hostCommand(Main main) { this.main = main; }
+
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if(commandSender instanceof Player){
@@ -30,10 +37,30 @@ public class hostCommand implements CommandExecutor {
                                 bc.append(part + " ");
                             }
                         }
-                       Bukkit.broadcastMessage("§6§l[" + player.getName() + "] " + bc);
+                        String replaceStrings = bc.toString().replaceAll("&", "§");
+                       Bukkit.broadcastMessage("§6§l[" + player.getName() + "] " + replaceStrings);
                         break;
                     case "menu":
                         menuHost.openMenuHost(player);
+                        break;
+                    case "settitle":
+                    case "setitle":
+                    case "title":
+                        StringBuilder bca = new StringBuilder();
+                        for (String part : strings) {
+                            if (!strings[0].equals(part)) {
+                                bca.append(part + " ");
+                            }
+                        }
+                        String replaceString = bca.toString().replaceAll("&", "§");
+                        Main.Title = replaceString;
+                        break;
+                    case "start":
+                        Timer task = new Timer();
+                        task.runTaskTimer(main, 0, 20);
+                        for(Player p : Bukkit.getOnlinePlayers()) {
+                            TPRandom(p);
+                        }
                         break;
                     default:
                         player.sendMessage("§c§lCommande inconnue, faites /host help");
@@ -46,5 +73,15 @@ public class hostCommand implements CommandExecutor {
             commandSender.sendMessage("§c§lLa console peut pas exécuter cette commande :'c");
             return true;
         }
+    }
+
+    public void TPRandom(Player p){
+        Location location = new Location(p.getWorld(), 0, 0, 0);
+
+        location.setX(Math.random() * 1000 * 2 - 1000);
+        location.setZ(Math.random() * 1000 * 2 - 1000);
+        location.setY(p.getWorld().getHighestBlockAt(location.getBlockX(), location.getBlockZ()).getY());
+
+        p.teleport(location);
     }
 }
