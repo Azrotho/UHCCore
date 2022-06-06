@@ -15,7 +15,7 @@ public class Main extends JavaPlugin {
 
     private static HashMap<UUID, Boolean> hosts;
 
-    private static final List<String> Scenarios = Arrays.asList("TwitchControl [X]", "HasteyBoy", "FastSmelting", "SuperHeroes [X]", "MysteryScenarios", "HideSuccess", "HideKills", "Pride Month!");
+    private static final List<String> Scenarios = Arrays.asList("TwitchControl [X]", "HasteyBoy", "FastSmelting", "SuperHeroes", "MysteryScenarios", "HideSuccess", "HideKills", "Pride Month!");
 
     private static String MDJ;
 

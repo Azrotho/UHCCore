@@ -3,6 +3,7 @@ package fr.azrotho.uhccore.commands;
 import fr.azrotho.uhccore.Main;
 import fr.azrotho.uhccore.utils.Timer;
 import fr.azrotho.uhccore.utils.menuHost;
+import fr.azrotho.uhccore.utils.superHeroes;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -60,6 +61,9 @@ public class hostCommand implements CommandExecutor {
                         task.runTaskTimer(main, 0, 20);
                         for(Player p : Bukkit.getOnlinePlayers()) {
                             TPRandom(p);
+                            if(Main.getScenarios().get("SuperHeroes")){
+                                superHeroes.SuperHeroes(p);
+                            }
                         }
                         break;
                     default:

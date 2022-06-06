@@ -16,6 +16,7 @@ public class uhcCommand implements CommandExecutor {
         switch (strings[0]) {
             case "info":
                 commandSender.sendMessage("§6§lInformations de la partie:");
+                commandSender.sendMessage("§e§lTitre de la partie: " + Main.Title);
                 commandSender.sendMessage("§e§lMode de Jeu: " + Main.getMDJ());
                 commandSender.sendMessage("§e§lActivation du PvP: §c" + Main.getTimerPvP() + " min");
                 commandSender.sendMessage("§e§lActivation de la Bordure: §c" + Main.getTimerBorder() + " min");
