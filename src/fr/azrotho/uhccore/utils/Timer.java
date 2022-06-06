@@ -17,7 +17,7 @@ public class Timer extends BukkitRunnable {
             final Objective objective = scoreboard.registerNewObjective("general", "dummy");
             objective.setDisplaySlot(DisplaySlot.SIDEBAR);
             objective.setDisplayName(Main.Title);
-            final Score Episode = objective.getScore("§c§lÉpisode: §f" + (int) (Main.Timer / 1200));
+            final Score Episode = objective.getScore("§c§lÉpisode: §f" + (int) (Main.Timer / 1200) + 1);
             final Score Timer = objective.getScore("§f" + ((Main.Timer - (1200 * (Main.Timer / 1200))) / 60 + " §c§lmin§f " + Main.Timer % 60));
             final Score Air = objective.getScore("");
             final Score Role = objective.getScore("§c§lPvP: §f" + Main.getTimerPvP() + " min");
