@@ -30,7 +30,7 @@ public class Timer extends BukkitRunnable {
             p.setScoreboard(scoreboard);
         }
         if(Main.Timer == Main.TimerBorder * 60){
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "worldborder set 100 300");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "worldborder set "+ Main.BordureApres + " " + Main.TempsBordure);
             Bukkit.broadcastMessage("§c§l[!], Attention la Bordure va réduire !");
         }
     }

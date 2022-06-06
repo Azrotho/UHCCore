@@ -2,6 +2,7 @@ package fr.azrotho.uhccore.listeners;
 
 import fr.azrotho.uhccore.Main;
 import fr.azrotho.uhccore.utils.menuHost;
+import org.bukkit.Bukkit;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -124,10 +125,13 @@ public class inventoryClick implements Listener {
             // Bordure Avant
             if (current.getItemMeta().getDisplayName().equalsIgnoreCase("§aAjouter +50 Bloc Avant")) {
                 Main.BordureAvant = Main.BordureAvant + 50;
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "worldborder set "+ Main.BordureAvant);
+
             }
             if (current.getItemMeta().getDisplayName().equalsIgnoreCase("§cRetirer -50 Bloc Avant")) {
                 if (Main.BordureAvant != 50) {
                     Main.BordureAvant = Main.BordureAvant - 50;
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "worldborder set "+ Main.BordureAvant);
                 } else {
                     p.sendMessage("§c§lVous ne pouvez pas faire une bordure plus petite que 50.");
                 }
