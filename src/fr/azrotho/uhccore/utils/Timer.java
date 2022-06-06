@@ -9,8 +9,9 @@ import org.bukkit.scoreboard.*;
 public class Timer extends BukkitRunnable {
     @Override
     public void run() {
+        Main.Timer = Main.Timer + 1;
         for(Player p : Bukkit.getOnlinePlayers()) {
-            Main.Timer = Main.Timer + 1;
+
             final ScoreboardManager scoreboardManager = Bukkit.getScoreboardManager();
             final Scoreboard scoreboard = scoreboardManager.getNewScoreboard();
             final Objective objective = scoreboard.registerNewObjective("general", "dummy");
@@ -27,6 +28,10 @@ public class Timer extends BukkitRunnable {
             Role.setScore(5);
             Border.setScore(4);
             p.setScoreboard(scoreboard);
+        }
+        if(Main.Timer == Main.TimerBorder * 60){
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "worldborder set 100 300");
+            Bukkit.broadcastMessage("§c§l[!], Attention la Bordure va réduire !");
         }
     }
 }

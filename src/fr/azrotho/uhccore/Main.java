@@ -5,6 +5,8 @@ import fr.azrotho.uhccore.commands.hostCommand;
 import fr.azrotho.uhccore.commands.uhcCommand;
 import fr.azrotho.uhccore.listeners.*;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.WorldBorder;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.*;
@@ -23,6 +25,9 @@ public class Main extends JavaPlugin {
     public static Main INSTANCE;
     private static HashMap<UUID, Boolean> NoFall;
     private static HashMap<UUID, String> Status;
+    public static Integer BordureAvant;
+    public static Integer BordureApres;
+    public static Integer TempsBordure;
 
     @Override
     public void onEnable() {

@@ -12,17 +12,17 @@ public class checkAlive {
     public static void CheckAliveUHC(){
         int count = 0;
 
-        Player p = null;
+        String pseudo = "null";
 
         for (Map.Entry<UUID, String> entry : Main.getStatus().entrySet()){
             String Status = entry.getValue();
             if(Objects.equals(Status, "Vivant")){
                 count++;
-                p = Bukkit.getServer().getPlayer(entry.getKey());
+                pseudo = Bukkit.getServer().getPlayer(entry.getKey()).getDisplayName();
             }
         }
         if(count == 1){
-            Bukkit.broadcastMessage("§c§l" + p.getDisplayName() + " §fa remporté la partie!");
+            Bukkit.broadcastMessage("§c§l" + pseudo + " §fa remporté la partie!");
         }
     }
 }

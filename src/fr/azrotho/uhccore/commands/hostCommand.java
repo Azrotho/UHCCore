@@ -2,6 +2,7 @@ package fr.azrotho.uhccore.commands;
 
 import fr.azrotho.uhccore.Main;
 import fr.azrotho.uhccore.utils.Timer;
+import fr.azrotho.uhccore.utils.checkAlive;
 import fr.azrotho.uhccore.utils.menuHost;
 import fr.azrotho.uhccore.utils.superHeroes;
 import org.bukkit.Bukkit;
@@ -61,11 +62,16 @@ public class hostCommand implements CommandExecutor {
                     case "start":
                         Timer task = new Timer();
                         task.runTaskTimer(main, 0, 20);
+
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "worldborder set 2500");
+
                         for(Player p : Bukkit.getOnlinePlayers()) {
                             p.setHealth(20);
+                            p.setMaxHealth(20);
                             p.getInventory().clear();
                             p.setFoodLevel(20);
                             p.setSaturation(20);
+
                             Main.getStatus().put(p.getUniqueId(), "Vivant");
                             TPRandom(p);
                             if(Main.getScenarios().get("SuperHeroes")){
@@ -77,6 +83,7 @@ public class hostCommand implements CommandExecutor {
                     case "silentdeath":
                         final UUID targetUUID = Bukkit.getServer().getPlayer(strings[1]).getUniqueId();
                         Main.getStatus().put(targetUUID, "Mort");
+                        checkAlive.CheckAliveUHC();
                         break;
                     default:
                         player.sendMessage("§c§lCommande inconnue, faites /host help");

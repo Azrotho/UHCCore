@@ -26,6 +26,7 @@ public class menuHost {
         inv.setItem(21, itemConstructor.getItem(Material.LEATHER_CHESTPLATE, "§c§lGestion des Inventaires", false, 1));
         inv.setItem(23, itemConstructor.getItem(Material.PAPER, "§c§lMode de Jeu", false, 1));
         inv.setItem(25, itemConstructor.getItem(Material.BEACON, "§c§lGestion des Timers", false, 1));
+        inv.setItem(29, itemConstructor.getItem(Material.DIAMOND_BLOCK, "Gestion de la Bordure", false, 1));
 
     }
     public static void openMenuScenarios(Player p){
@@ -111,5 +112,52 @@ public class menuHost {
         inv.setItem(14, itemConstructor.getItem(Material.DRAGON_EGG, "§c§lSpeedrun", false, 1));
 
     }
+    public static void openMenuBorder(Player p){
+        Inventory inv = Bukkit.createInventory(null, 45, "§c§lGestion de la Bordure");
+
+        p.openInventory(inv);
+
+        ItemStack pvp = new ItemStack(Material.DIAMOND_BLOCK);
+        ItemMeta pvpMeta = pvp.getItemMeta();
+        pvpMeta.setDisplayName("§c§lTaille Bordure Avant Activation");
+        pvpMeta.setLore(Arrays.asList(" ", "§cTaille Bordure: §e" + Main.BordureAvant + ""));
+        pvp.setItemMeta(pvpMeta);
+        inv.setItem(20, pvp);
+
+        ItemStack Border = new ItemStack(Material.IRON_BLOCK);
+        ItemMeta BorderMeta = pvp.getItemMeta();
+        BorderMeta.setDisplayName("§c§lTaille Bordure après activation");
+        BorderMeta.setLore(Arrays.asList(" ", "§cTaille Bordure: §e" + Main.BordureApres + ""));
+        Border.setItemMeta(BorderMeta);
+        inv.setItem(24, Border);
+
+        ItemStack AddPvP = new ItemStack(Material.STAINED_GLASS, 1, DyeColor.LIME.getData());
+        ItemMeta AddPvPMeta = AddPvP.getItemMeta();
+        AddPvPMeta.setDisplayName("§aAjouter +50 Bloc Avant");
+        AddPvP.setItemMeta(AddPvPMeta);
+        inv.setItem(11, AddPvP);
+
+        ItemStack RemovePvP = new ItemStack(Material.STAINED_GLASS, 1, DyeColor.RED.getData());
+        ItemMeta RemovePvPMeta = RemovePvP.getItemMeta();
+        RemovePvPMeta.setDisplayName("§cRetirer -50 Bloc Avant");
+        RemovePvP.setItemMeta(RemovePvPMeta);
+        inv.setItem(29, RemovePvP);
+
+        ItemStack AddBordure = new ItemStack(Material.STAINED_GLASS, 1, DyeColor.LIME.getData());
+        ItemMeta AddBordureMeta = AddBordure.getItemMeta();
+        AddBordureMeta.setDisplayName("§aAjouter +50 Bloc Après");
+        AddBordure.setItemMeta(AddBordureMeta);
+        inv.setItem(15, AddBordure);
+
+        ItemStack RemoveBordure = new ItemStack(Material.STAINED_GLASS, 1, DyeColor.RED.getData());
+        ItemMeta RemoveBordureMeta = RemoveBordure.getItemMeta();
+        RemoveBordureMeta.setDisplayName("§cRetirer -50 Bloc Après");
+        RemoveBordure.setItemMeta(RemoveBordureMeta);
+        inv.setItem(33, RemoveBordure);
+
+    }
+
+
+
 
 }
