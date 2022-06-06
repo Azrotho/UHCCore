@@ -12,25 +12,17 @@ import java.util.*;
 public class Main extends JavaPlugin {
 
     private static HashMap<String, Boolean> scenarios;
-
     private static HashMap<UUID, Boolean> hosts;
-
     private static final List<String> Scenarios = Arrays.asList("TwitchControl [WIP]", "HasteyBoy", "FastSmelting", "SuperHeroes", "MysteryScenarios", "HideSuccess", "HideKills", "Pride Month!", "Random [WIP]", "DoubleJump [WIP]");
-
     private static String MDJ;
-
     public static String Inventory;
-
     public static Integer TimerPvP;
-
     public static Integer TimerBorder;
-
     public static String Title;
-
     public static Integer Timer;
-
     public static Main INSTANCE;
     private static HashMap<UUID, Boolean> NoFall;
+    private static HashMap<UUID, String> Status;
 
     @Override
     public void onEnable() {
@@ -46,6 +38,7 @@ public class Main extends JavaPlugin {
         scenarios = new HashMap<>();
         hosts = new HashMap<>();
         NoFall = new HashMap<>();
+        Status = new HashMap<>();
         Objects.requireNonNull(this.getCommand("uhc")).setExecutor(new uhcCommand());
         Objects.requireNonNull(this.getCommand("host")).setExecutor(new hostCommand(this));
         Objects.requireNonNull(this.getCommand("console")).setExecutor(new consoleCommand());
@@ -61,28 +54,20 @@ public class Main extends JavaPlugin {
     }
 
     public static HashMap<String, Boolean> getScenarios() { return  scenarios; }
-
     public static HashMap<UUID, Boolean> getHosts() { return hosts; }
-
     public static List<String> getScenariosList() { return Scenarios; }
-
     public static String getMDJ() {
         return MDJ;
     }
     public static Integer getTimerPvP() {
         return TimerPvP;
     }
-
     public static Integer getTimerBorder() {
         return TimerBorder;
     }
-
     public static Main getInstance() {
         return INSTANCE;
     }
-
     public static HashMap<UUID, Boolean> getNoFall() { return NoFall; }
-
-
-
+    public static HashMap<UUID, String> getStatus() { return Status; }
 }

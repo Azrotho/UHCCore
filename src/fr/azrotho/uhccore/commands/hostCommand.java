@@ -11,6 +11,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.UUID;
+
 public class hostCommand implements CommandExecutor {
 
     private Main main;
@@ -64,12 +66,17 @@ public class hostCommand implements CommandExecutor {
                             p.getInventory().clear();
                             p.setFoodLevel(20);
                             p.setSaturation(20);
+                            Main.getStatus().put(p.getUniqueId(), "Vivant");
                             TPRandom(p);
                             if(Main.getScenarios().get("SuperHeroes")){
                                 superHeroes.SuperHeroes(p);
                             }
                         }
 
+                        break;
+                    case "silentdeath":
+                        final UUID targetUUID = Bukkit.getServer().getPlayer(strings[1]).getUniqueId();
+                        Main.getStatus().put(targetUUID, "Mort");
                         break;
                     default:
                         player.sendMessage("§c§lCommande inconnue, faites /host help");

@@ -21,5 +21,6 @@ public class onJoin implements Listener {
         event.getPlayer().setScoreboard(scoreboard);
 
         Main.getNoFall().put(event.getPlayer().getUniqueId(), false);
+        Main.getStatus().put(event.getPlayer().getUniqueId(), "Wait");
     }
 }
