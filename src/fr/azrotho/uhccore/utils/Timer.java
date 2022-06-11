@@ -17,7 +17,7 @@ public class Timer extends BukkitRunnable {
             final Objective objective = scoreboard.registerNewObjective("general", "dummy");
             objective.setDisplaySlot(DisplaySlot.SIDEBAR);
             objective.setDisplayName(Main.Title);
-            final Score Episode = objective.getScore("§c§lÉpisode: §f" + (int) (Main.Timer / 1200) + 1);
+            final Score Episode = objective.getScore("§c§lÉpisode: §f" + (int) (Main.Timer / 1200 + 1));
             final Score Timer = objective.getScore("§f" + ((Main.Timer - (1200 * (Main.Timer / 1200))) / 60 + " §c§lmin§f " + Main.Timer % 60));
             final Score Air = objective.getScore("");
             final Score Role = objective.getScore("§c§lPvP: §f" + Main.getTimerPvP() + " min");
@@ -28,6 +28,12 @@ public class Timer extends BukkitRunnable {
             Role.setScore(5);
             Border.setScore(4);
             p.setScoreboard(scoreboard);
+
+
+            if(p.isFlying()){
+                p.setFlying(false);
+            }
+
         }
         if(Main.Timer == Main.TimerBorder * 60){
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "worldborder set "+ Main.BordureApres + " " + Main.TempsBordure);

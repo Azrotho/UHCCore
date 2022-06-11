@@ -15,8 +15,8 @@ public class randomizer implements Listener {
 
     @EventHandler
     public void Randomize(BlockBreakEvent e) {
-        e.setCancelled(true);
         if (Main.getScenarios().get("Random")) {
+            e.setCancelled(true);
             if (e.getPlayer().getGameMode().equals(GameMode.SURVIVAL)) {
                 e.getBlock().getWorld().dropItemNaturally(e.getBlock().getLocation(), new ItemStack(
                         Main.getRandom().get(e.getBlock().getType())));

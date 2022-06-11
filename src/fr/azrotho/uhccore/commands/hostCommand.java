@@ -6,7 +6,6 @@ import fr.azrotho.uhccore.utils.Timer;
 import fr.azrotho.uhccore.utils.checkAlive;
 import fr.azrotho.uhccore.utils.menuHost;
 import fr.azrotho.uhccore.utils.superHeroes;
-import net.minecraft.server.v1_8_R3.GameRules;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -76,7 +75,7 @@ public class hostCommand implements CommandExecutor {
                             task.runTaskTimer(main, 0, 20);
 
                             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "worldborder set 2500");
-                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "gamerule naturalregeneration false");
+                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "gamerule naturalRegeneration false");
 
                             for (Player p : Bukkit.getOnlinePlayers()) {
                                 p.setHealth(20);
@@ -95,6 +94,10 @@ public class hostCommand implements CommandExecutor {
                                 if (Main.getScenarios().get("Random")){
                                     randomizer.randomList();
                                     p.getInventory().addItem(new ItemStack(Material.WORKBENCH, 64));
+                                }
+                                if (Main.getScenarios().get("AirJump")){
+                                    p.setAllowFlight(true);
+                                    p.setFlying(true);
                                 }
 
                             }

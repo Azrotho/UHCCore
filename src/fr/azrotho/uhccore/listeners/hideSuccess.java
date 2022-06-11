@@ -10,8 +10,6 @@ public class hideSuccess implements Listener {
 
     @EventHandler
     public void HideSuccess(PlayerAchievementAwardedEvent event){
-        if(Main.getScenarios().get("HideSuccess")) {
             event.setCancelled(true);
-        }
     }
 }
