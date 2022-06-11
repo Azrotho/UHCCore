@@ -5,6 +5,7 @@ import fr.azrotho.uhccore.utils.Timer;
 import fr.azrotho.uhccore.utils.checkAlive;
 import fr.azrotho.uhccore.utils.menuHost;
 import fr.azrotho.uhccore.utils.superHeroes;
+import net.minecraft.server.v1_8_R3.GameRules;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -41,11 +42,18 @@ public class hostCommand implements CommandExecutor {
                                 bc.append(part + " ");
                             }
                         }
+
+                        //+
+
                         String replaceStrings = bc.toString().replaceAll("&", "§");
                        Bukkit.broadcastMessage("§6§l[" + player.getName() + "] " + replaceStrings);
                         break;
                     case "menu":
-                        menuHost.openMenuHost(player);
+                        if(Main.Timer == 0) {
+                            menuHost.openMenuHost(player);
+                        }else{
+                            commandSender.sendMessage("§c§lLa partie est déjà démarré.");
+                        }
                         break;
                     case "settitle":
                     case "setitle":
@@ -60,24 +68,33 @@ public class hostCommand implements CommandExecutor {
                         Main.Title = replaceString;
                         break;
                     case "start":
-                        Timer task = new Timer();
-                        task.runTaskTimer(main, 0, 20);
+                        if(Main.Timer == 0) {
+                            Timer task = new Timer();
+                            task.runTaskTimer(main, 0, 20);
 
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "worldborder set 2500");
+                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "worldborder set 2500");
+                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "gamerule naturalregeneration false");
 
-                        for(Player p : Bukkit.getOnlinePlayers()) {
-                            p.setHealth(20);
-                            p.getInventory().clear();
-                            p.setFoodLevel(20);
-                            p.setSaturation(20);
+                            for (Player p : Bukkit.getOnlinePlayers()) {
+                                p.setHealth(20);
+                                p.getInventory().clear();
+                                p.setFoodLevel(20);
+                                p.setSaturation(20);
 
-                            Main.getStatus().put(p.getUniqueId(), "Vivant");
-                            TPRandom(p);
-                            if(Main.getScenarios().get("SuperHeroes")){
-                                superHeroes.SuperHeroes(p);
+                                Main.getStatus().put(p.getUniqueId(), "Vivant");
+                                TPRandom(p);
+                                if (Main.getScenarios().get("SuperHeroes")) {
+                                    superHeroes.SuperHeroes(p);
+                                }
+                                if (Main.getScenarios().get("NoFall")) {
+                                    Main.getNoFall().put(p.getUniqueId(), true);
+                                }
+
+
                             }
+                        }else{
+                            commandSender.sendMessage("§cLa partie est déjà démarré !");
                         }
-
                         break;
                     case "silentdeath":
                         final UUID targetUUID = Bukkit.getServer().getPlayer(strings[1]).getUniqueId();

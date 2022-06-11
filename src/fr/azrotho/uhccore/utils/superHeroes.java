@@ -14,8 +14,8 @@ public class superHeroes {
                 p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 10000 * 20, 0, true));
                 break;
             case 1:
-                p.setMaxHealth(40);
-                p.setHealth(40);
+                p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 10000 * 20, 4, true));
+                p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20, 255, true));
                 break;
             case 2:
                 p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 10000 * 20, 4, true));

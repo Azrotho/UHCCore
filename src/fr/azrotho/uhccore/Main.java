@@ -6,6 +6,7 @@ import fr.azrotho.uhccore.commands.uhcCommand;
 import fr.azrotho.uhccore.listeners.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.WorldBorder;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,7 +16,7 @@ public class Main extends JavaPlugin {
 
     private static HashMap<String, Boolean> scenarios;
     private static HashMap<UUID, Boolean> hosts;
-    private static final List<String> Scenarios = Arrays.asList("TwitchControl [WIP]", "HasteyBoy", "FastSmelting", "SuperHeroes", "MysteryScenarios", "HideSuccess", "HideKills", "Pride Month!", "Random [WIP]", "DoubleJump [WIP]", "KickAtDeath");
+    private static final List<String> Scenarios = Arrays.asList("TwitchControl [WIP]", "HasteyBoy", "FastSmelting", "SuperHeroes", "MysteryScenarios", "HideSuccess", "HideKills", "Pride Month!", "Random [WIP]", "DoubleJump [WIP]", "KickAtDeath", "NoFall");
     private static String MDJ;
     public static String Inventory;
     public static Integer TimerPvP;
@@ -25,6 +26,7 @@ public class Main extends JavaPlugin {
     public static Main INSTANCE;
     private static HashMap<UUID, Boolean> NoFall;
     private static HashMap<UUID, String> Status;
+    private static HashMap<Material, Material> Random;
     public static Integer BordureAvant;
     public static Integer BordureApres;
 
@@ -45,6 +47,7 @@ public class Main extends JavaPlugin {
         hosts = new HashMap<>();
         NoFall = new HashMap<>();
         Status = new HashMap<>();
+        Random = new HashMap<>();
         Objects.requireNonNull(this.getCommand("uhc")).setExecutor(new uhcCommand());
         Objects.requireNonNull(this.getCommand("host")).setExecutor(new hostCommand(this));
         Objects.requireNonNull(this.getCommand("console")).setExecutor(new consoleCommand());
@@ -65,6 +68,7 @@ public class Main extends JavaPlugin {
     public static HashMap<String, Boolean> getScenarios() { return  scenarios; }
     public static HashMap<UUID, Boolean> getHosts() { return hosts; }
     public static List<String> getScenariosList() { return Scenarios; }
+    public static HashMap<Material, Material> getRandom() { return Random; }
     public static String getMDJ() {
         return MDJ;
     }

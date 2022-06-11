@@ -3,6 +3,7 @@
     <output-path>E:/Azrotho/Plugins</output-path>
     <root id="archive" name="UHCCore.jar">
       <element id="module-output" name="UHCCore" />
+      <element id="library" level="project" name="twitch4j-pubsub-1.10.0" />
     </root>
   </artifact>
 </component>

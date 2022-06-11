@@ -9,6 +9,8 @@ import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.ScoreboardManager;
 
+import java.util.Objects;
+
 public class onJoin implements Listener {
     @EventHandler
     public void OnJoin(PlayerJoinEvent event){
@@ -24,7 +26,7 @@ public class onJoin implements Listener {
         Main.getStatus().put(event.getPlayer().getUniqueId(), "Wait");
 
 
-        if(Main.Timer != 0){
+        if(Main.Timer != 0 && !(Objects.equals(Main.getStatus().get(event.getPlayer().getUniqueId()), "Vivant"))){
             event.getPlayer().kickPlayer("§c§lLa partie est déjà en cours...");
         }
     }
