@@ -1,6 +1,7 @@
 package fr.azrotho.uhccore.commands;
 
 import fr.azrotho.uhccore.Main;
+import fr.azrotho.uhccore.listeners.randomizer;
 import fr.azrotho.uhccore.utils.Timer;
 import fr.azrotho.uhccore.utils.checkAlive;
 import fr.azrotho.uhccore.utils.menuHost;
@@ -8,10 +9,12 @@ import fr.azrotho.uhccore.utils.superHeroes;
 import net.minecraft.server.v1_8_R3.GameRules;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.UUID;
 
@@ -89,7 +92,10 @@ public class hostCommand implements CommandExecutor {
                                 if (Main.getScenarios().get("NoFall")) {
                                     Main.getNoFall().put(p.getUniqueId(), true);
                                 }
-
+                                if (Main.getScenarios().get("Random")){
+                                    randomizer.randomList();
+                                    p.getInventory().addItem(new ItemStack(Material.WORKBENCH, 64));
+                                }
 
                             }
                         }else{

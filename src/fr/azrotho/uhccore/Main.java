@@ -16,7 +16,7 @@ public class Main extends JavaPlugin {
 
     private static HashMap<String, Boolean> scenarios;
     private static HashMap<UUID, Boolean> hosts;
-    private static final List<String> Scenarios = Arrays.asList("TwitchControl [WIP]", "HasteyBoy", "FastSmelting", "SuperHeroes", "MysteryScenarios", "HideSuccess", "HideKills", "Pride Month!", "Random [WIP]", "DoubleJump [WIP]", "KickAtDeath", "NoFall");
+    private static final List<String> Scenarios = Arrays.asList("TwitchControl [WIP]", "HasteyBoy", "FastSmelting", "SuperHeroes", "MysteryScenarios", "HideSuccess", "HideKills", "Pride Month!", "Random", "DoubleJump [WIP]", "KickAtDeath", "NoFall");
     private static String MDJ;
     public static String Inventory;
     public static Integer TimerPvP;
@@ -29,7 +29,6 @@ public class Main extends JavaPlugin {
     private static HashMap<Material, Material> Random;
     public static Integer BordureAvant;
     public static Integer BordureApres;
-
     public static Integer TempsBordure;
 
     @Override
@@ -43,6 +42,7 @@ public class Main extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new onJoin(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new hasteyBoy(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new fastSmelting(), this);
+        Bukkit.getServer().getPluginManager().registerEvents(new randomizer(), this);
         scenarios = new HashMap<>();
         hosts = new HashMap<>();
         NoFall = new HashMap<>();

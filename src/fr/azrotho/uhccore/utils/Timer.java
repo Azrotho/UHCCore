@@ -33,5 +33,8 @@ public class Timer extends BukkitRunnable {
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "worldborder set "+ Main.BordureApres + " " + Main.TempsBordure);
             Bukkit.broadcastMessage("§c§l[!], Attention la Bordure va réduire !");
         }
+        if(Main.Timer == Main.TimerPvP * 60){
+            Bukkit.broadcastMessage("§c§l[!], Attention le PvP est Actif !");
+        }
     }
 }
