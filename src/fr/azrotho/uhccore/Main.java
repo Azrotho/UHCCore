@@ -16,7 +16,7 @@ public class Main extends JavaPlugin {
 
     private static HashMap<String, Boolean> scenarios;
     private static HashMap<UUID, Boolean> hosts;
-    private static final List<String> Scenarios = Arrays.asList("TwitchControl [WIP]", "HasteyBoy", "FastSmelting", "SuperHeroes", "MysteryScenarios", "HideKills", "Pride Month!", "Random", "AirJump", "KickAtDeath", "NoFall");
+    private static final List<String> Scenarios = Arrays.asList("TwitchControl [WIP]", "HasteyBoy", "FastSmelting", "SuperHeroes", "MysteryScenarios", "HideKills", "Pride Month!", "Random", "AirJump", "KickAtDeath", "NoFall", "XpAsLife");
     private static String MDJ;
     public static String Inventory;
     public static Integer TimerPvP;
@@ -59,7 +59,7 @@ public class Main extends JavaPlugin {
         Inventory = "Classic";
         TimerPvP = 20;
         TimerBorder = 60;
-        Title = "§4P§cr§6i§ed§ae §2M§1o§bn§dt§5h";
+        Title = "§c§lUHC CORE";
         Timer = 0;
         BordureAvant = 1250;
         BordureApres = 100;

@@ -42,5 +42,10 @@ public class Timer extends BukkitRunnable {
         if(Main.Timer == Main.TimerPvP * 60){
             Bukkit.broadcastMessage("§c§l[!], Attention le PvP est Actif !");
         }
+        if(Main.getScenarios().get("XpAsLife")){
+            for(Player p : Bukkit.getOnlinePlayers()){
+                p.setMaxHealth(4 + p.getLevel());
+            }
+        }
     }
 }
