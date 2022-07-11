@@ -44,7 +44,7 @@ public class Timer extends BukkitRunnable {
         }
         if(Main.getScenarios().get("XpAsLife")){
             for(Player p : Bukkit.getOnlinePlayers()){
-                p.setMaxHealth(4 + p.getLevel());
+                p.setMaxHealth(10 + (p.getLevel() * 2));
             }
         }
     }
